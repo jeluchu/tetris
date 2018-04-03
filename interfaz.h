@@ -1,6 +1,12 @@
 #ifndef __INTERFAZ_H__
 #define __INTERFAZ_H__
 
+typedef struct {
+    char **array;
+    int width, row, col;
+} Shape;
+Shape current;
+
 #ifdef __cplusplus
 extern "C" {
 #endif
