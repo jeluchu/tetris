@@ -44,14 +44,16 @@ int main() {
           manipulate(c);
         }
         gettimeofday(&after, NULL);
-        if (((double)after.tv_sec*1000000 + (double)after.tv_usec)-((double)before.tv_sec*1000000 + (double)before.tv_usec) > timer){ //time difference in microsec accuracy
+        if (((double)after.tv_sec*1000000 + (double)after.tv_usec)-((double)before.tv_sec*1000000 + (double)before.tv_usec) > timer){ 
             before = after;
             manipulate('s');
         }
     }
 
-    printw("\nGame over\n");
+    printw("\n¡GAME OVER!\n");
 
     eliminar_formas(current);
-    return 0;
+    endwin();
+
+    return EXIT_SUCCESS;
 }

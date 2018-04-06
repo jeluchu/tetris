@@ -106,6 +106,7 @@ void el_revisador(){
 void dibujar_tabla(){
     char Buffer[FILAS][COLUMNAS] = {0};
     int i, j;
+
     for(i = 0; i < current.width ;i++){
         for(j = 0; j < current.width ; j++){
             if(current.array[i][j])
@@ -119,7 +120,15 @@ void dibujar_tabla(){
         }
         printw("\n");
     }
-    printw("\nPuntuación: %d\n", puntuacion);
+
+    if (has_colors())
+        start_color();
+
+    attron(A_BOLD | COLOR_GREEN);
+    printw("\nPuntuación: "); 
+    attroff(A_BOLD |  COLOR_GREEN);
+
+    printw("%d\n", puntuacion);
 }
 
 void manipulate(int action){
