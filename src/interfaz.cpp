@@ -4,7 +4,11 @@
 #include <sys/time.h>
 #include <ncurses.h>
 
+#include "main.h"
 #include "interfaz.h"
+#include "global.h"
+
+Shape current;
 
 Shape forma_copiada(Shape shape){
     Shape nueva_forma = shape;
@@ -45,6 +49,7 @@ int revisar_posicion(Shape shape){ //REVISA LA POSICIÓN DE LA FORMA COPIADA
 }
 
 void obtener_nuevas_formas(){ //DEVUELVE UNA FORMA ALEATORIA
+
     Shape nueva_forma = forma_copiada(ShapesArray[rand()%7]);
 
     nueva_forma.col = rand()%(COLUMNAS-nueva_forma.width+1);
@@ -110,7 +115,7 @@ void dibujar_tabla(){
     clear();
     for(i = 0; i < FILAS ;i++){
         for(j = 0; j < COLUMNAS ; j++){
-            printw("%c ", (Table[i][j] + Buffer[i][j])? 'O': '.');
+            printw("%s", (Table[i][j] + Buffer[i][j])? "0": ".");
         }
         printw("\n");
     }

@@ -3,20 +3,15 @@
 #include <time.h>
 #include <sys/time.h>
 #include <ncurses.h>
-
-#include "interfaz.h"
-
-#define FILAS 20
-#define COLUMNAS 11
-#define TRUE 1
-#define FALSE 0
+#include <locale.h>
+#include "main.h"
 
 char Table[FILAS][COLUMNAS] = {0};
 int puntuacion = 0;
 char GameOn = TRUE;
 double timer = 500000;
 
-const Shape ShapesArray[7]= {
+Shape ShapesArray[7]= {
     {(char *[]){(char []){0,1,1},(char []){1,1,0}, (char []){0,0,0}}, 3},                           //S_shape
     {(char *[]){(char []){1,1,0},(char []){0,1,1}, (char []){0,0,0}}, 3},                           //Z_shape
     {(char *[]){(char []){0,1,0},(char []){1,1,1}, (char []){0,0,0}}, 3},                           //T_shape
@@ -27,7 +22,7 @@ const Shape ShapesArray[7]= {
 };
 
 int main() {
-
+    setlocale(LC_ALL,"");
     srand(time(0));
     puntuacion = 0;
     int c;

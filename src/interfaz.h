@@ -1,11 +1,13 @@
 #ifndef __INTERFAZ_H__
 #define __INTERFAZ_H__
 
+#include "global.h"
+
 typedef struct {
     char **array;
     int width, row, col;
 } Shape;
-Shape current;
+extern Shape current;
 
 #ifdef __cplusplus
 extern "C" {
