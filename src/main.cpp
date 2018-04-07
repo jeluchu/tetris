@@ -28,6 +28,8 @@ int main() {
     int c;
 
     initscr();
+    
+    system("toilet -gay -fpagga TETRIS");
 
     struct timeval before, after;
 
