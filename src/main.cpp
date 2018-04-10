@@ -22,10 +22,14 @@ Shape ShapesArray[7]= {
 };
 
 int main() {
+    system("toilet --gay -fpagga TETRIS");
+    system("setterm -cursor off");
     setlocale(LC_ALL,"");
     srand(time(0));
     puntuacion = 0;
     int c;
+
+    //system("toilet --gay -fpagga TETRIS");
 
     initscr();
 
@@ -44,7 +48,7 @@ int main() {
           manipulate(c);
         }
         gettimeofday(&after, NULL);
-        if (((double)after.tv_sec*1000000 + (double)after.tv_usec)-((double)before.tv_sec*1000000 + (double)before.tv_usec) > timer){ 
+        if (((double)after.tv_sec*1000000 + (double)after.tv_usec)-((double)before.tv_sec*1000000 + (double)before.tv_usec) > timer){
             before = after;
             manipulate('s');
         }
@@ -54,6 +58,7 @@ int main() {
 
     eliminar_formas(current);
     endwin();
+    system("setterm -cursor on");
 
     return EXIT_SUCCESS;
 }

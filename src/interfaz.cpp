@@ -124,9 +124,12 @@ void dibujar_tabla(){
     if (has_colors())
         start_color();
 
-    attron(A_BOLD | COLOR_GREEN);
-    printw("\nPuntuación: "); 
-    attroff(A_BOLD |  COLOR_GREEN);
+    attron(A_BOLD);
+    attron(COLOR_PAIR(2));
+    init_pair(2, COLOR_GREEN, COLOR_BLACK);
+    printw("\nPuntuación: ");
+    attroff(COLOR_PAIR(2));
+    attroff(A_BOLD);
 
     printw("%d\n", puntuacion);
 }
