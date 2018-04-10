@@ -3,10 +3,15 @@
 #include <time.h>
 #include <sys/time.h>
 #include <ncurses.h>
+#include <string.h>
+#include <strings.h>
+#include <unistd.h>
 
 #include "main.h"
 #include "interfaz.h"
 #include "global.h"
+
+#define DELAY 30000
 
 Shape current;
 
@@ -146,22 +151,33 @@ void manipulate(int action){
                 el_revisador(); //check full lines, after putting it down
                 obtener_nuevas_formas();
             }
-            break;
+        break;
         case 'd':
             temp.col++;  //MOVER A LA DERECHA
             if(revisar_posicion(temp))
                 current.col++;
-            break;
+        break;
         case 'a':
             temp.col--;  //MOVER HACIA LA IZQUIERDA
             if(revisar_posicion(temp))
                 current.col--;
-            break;
+        break;
         case 'w':
             girar_forma(temp);  //ROTACIÓN SOBRE SU EJE
             if(revisar_posicion(temp))
                 girar_forma(current);
-            break;
+        break;
+        case 'p':
+            attron(A_BOLD);
+            attron(COLOR_PAIR(3));
+            init_pair(3, COLOR_YELLOW, COLOR_BLACK);
+            mvprintw(1, 0, "PAUSA - Pulsa cualquier tecla para continuar");
+            attroff(COLOR_PAIR(3));
+            attroff(A_BOLD);
+      			while (getch() == ERR) {
+      				usleep(DELAY * 7);
+      			}
+        break;
     }
     eliminar_formas(temp);
     dibujar_tabla();
