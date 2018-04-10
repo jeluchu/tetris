@@ -167,7 +167,7 @@ void manipulate(int action){
             if(revisar_posicion(temp))
                 girar_forma(current);
         break;
-        case 'p':
+        case 'p': //PAUSA EL JUEGO HASTA LA PULSACIÓN DE CUALQUIER TECLA
             attron(A_BOLD);
             attron(COLOR_PAIR(3));
             init_pair(3, COLOR_YELLOW, COLOR_BLACK);
