@@ -4,7 +4,17 @@
 #include <sys/time.h>
 #include <ncurses.h>
 #include <locale.h>
+#include <menu.h>
+
+#define MENU_NEW_GAME  0
+#define MENU_CREDITS   1
+#define MENU_EXIT      2
+
+#define ARRAY_SIZE(a) (sizeof(a) / sizeof(a[0]))
+
 #include "main.h"
+//#include <portaudio.h>
+
 
 char Table[FILAS][COLUMNAS] = {0};
 int puntuacion = 0;
@@ -22,18 +32,14 @@ Shape ShapesArray[7]= {
 };
 
 int main() {
-    system("toilet --gay -fpagga TETRIS");
     system("setterm -cursor off");
     setlocale(LC_ALL,"");
     srand(time(0));
     puntuacion = 0;
     int c;
 
-    //system("toilet --gay -fpagga TETRIS");
-
     initscr();
-    
-    system("toilet -gay -fpagga TETRIS");
+   
 
     struct timeval before, after;
 
