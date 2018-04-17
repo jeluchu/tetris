@@ -32,14 +32,13 @@ Shape ShapesArray[7]= {
 };
 
 int main() {
-    system("setterm -cursor off");
     setlocale(LC_ALL,"");
     srand(time(0));
     puntuacion = 0;
     int c;
 
     initscr();
-   
+    curs_set(0);
 
     struct timeval before, after;
 
@@ -65,8 +64,8 @@ int main() {
     printw("\n¡GAME OVER!\n");
 
     eliminar_formas(current);
+    curs_set(1);    
     endwin();
-    system("setterm -cursor on");
 
     return EXIT_SUCCESS;
 }
