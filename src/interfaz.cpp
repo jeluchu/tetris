@@ -7,6 +7,7 @@
 #include <strings.h>
 #include <unistd.h>
 
+
 #include "main.h"
 #include "interfaz.h"
 #include "global.h"

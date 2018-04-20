@@ -5,6 +5,8 @@
 #include <ncurses.h>
 #include <locale.h>
 #include <menu.h>
+//#include <libgnome.h>
+//http://www.linuxfromscratch.org/blfs/view/5.1/gnome/libgnome.html --> REVISAR
 
 #define MENU_NEW_GAME  0
 #define MENU_CREDITS   1
@@ -36,6 +38,9 @@ int main() {
     srand(time(0));
     puntuacion = 0;
     int c;
+
+    //gnome_sound_init("localhost");
+    //gnome_sound_play("/usr/share/prueba.wav") 
 
     initscr();
     curs_set(0);
